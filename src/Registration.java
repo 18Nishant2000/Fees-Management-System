@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -51,16 +53,22 @@ public class Registration {
             pstmt.setString(2, pass_field.getText());
             pstmt.execute();
             con.close();
+            new user();
         } catch (Exception exception) {
             System.err.println(exception);
-        }
+        }         
+            
             }
         });
         
         old_user.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new user();
+                try {
+                    new user();
+                } catch (ClassNotFoundException ex) {
+                    System.out.println(ex);
+                }
             }
         });
     }  

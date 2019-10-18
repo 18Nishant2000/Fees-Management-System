@@ -1,6 +1,8 @@
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -33,7 +35,11 @@ public class welcome {
         user.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new user();
+                try {
+                    new user();
+                } catch (ClassNotFoundException ex) {
+                    System.out.println(ex);
+                }
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             }
         });

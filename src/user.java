@@ -1,6 +1,11 @@
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.sound.midi.SysexMessage;
@@ -11,7 +16,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class user {
-    user(){
+    user() throws ClassNotFoundException{
         JFrame frame=new JFrame("USER LOGIN");
         JLabel label=new JLabel("USER LOGIN");
         JLabel name=new JLabel("NAME: ");
@@ -38,6 +43,30 @@ public class user {
         frame.setVisible(true);
         frame.setLayout(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        login.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            try(Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/fees","root","contactmrnishantbansal@18");) {
+            Statement stmt=con.createStatement();
+            String query="select * from records";
+            ResultSet rst=stmt.executeQuery(query);
+            while(rst.next()){
+                if(rst.getString(1).equals(name_field.getText()) && rst.getString(2).equals(pass_field.getText()))
+                {
+                    new userDetails();
+                    break;
+                }
+            }
+            con.close();
+        } catch (Exception exception) {
+            System.err.println(exception);
+        }
+            }
+        });
+        
+        
         new_user.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
