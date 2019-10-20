@@ -92,10 +92,30 @@ public class adminMenu {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try(Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/fees","root","contactmrnishantbansal@18");){
-                    String query="update records set name=\"Nishant\" where name=\"hello\"";
-                    Statement stmt=con.createStatement();
-                    stmt.execute(query);
-                    con.close();
+                    String old_name=JOptionPane.showInputDialog(frame,"Enter name");
+                    String old_pass=JOptionPane.showInputDialog(frame,"Enter pass");
+                    //String query="select * from records where name=\""+old_name+"\" and password=\""+old_pass+"\"";
+                    String query="select * from records";
+                    Statement stmt1=con.createStatement();
+                    ResultSet rst=stmt1.executeQuery(query);
+                    int fail=0;
+                    while(rst.next()){
+                        if(rst.getString(1).equals(old_name)&&rst.getString(2).equals(old_pass))
+                        {
+                            String new_name=JOptionPane.showInputDialog(frame,"Enter new name");
+                            String new_pass=JOptionPane.showInputDialog(frame,"Enter new pass");
+                            query="update records set name=\""+new_name+"\",password=\""+new_pass+"\" where name=\""+old_name+"\" and password=\""+old_pass+"\"";
+                            Statement stmt2=con.createStatement();
+                            stmt2.execute(query);
+                            JOptionPane.showMessageDialog(frame, "Record updated successfully.....");
+                            fail=0;
+                            break;
+                        }   
+                        fail++;
+                    }
+                    if(fail>0)
+                        JOptionPane.showMessageDialog(frame, "Record not exists","Error",JOptionPane.ERROR_MESSAGE);
+                   con.close();
                 }catch(Exception ex){
                     System.out.println(ex);
                 }
