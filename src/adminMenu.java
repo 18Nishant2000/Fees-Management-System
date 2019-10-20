@@ -63,24 +63,26 @@ public class adminMenu {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try(Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/fees","root","contactmrnishantbansal@18");) {
-                    String name=(String)JOptionPane.showInputDialog(frame,"Enter name of the student");
+                    String name=JOptionPane.showInputDialog(frame,"Enter name");
+                    String pass=JOptionPane.showInputDialog(frame,"Enter password");
                     String query="select * from records";
                     Statement stmt1=con.createStatement();
                     ResultSet rst=stmt1.executeQuery(query);
+                    int fail=0;
                     while(rst.next()){
-                        if(rst.getString(1).equals(name))
+                        if(rst.getString(1).equals(name)&&rst.getString(2).equals(pass))
                         {
                             query="delete from records where name=\""+name+"\"";
                             Statement stmt2=con.createStatement();
                             stmt2.execute(query);
                             JOptionPane.showMessageDialog(frame,"Record deleted successfully....");
+                            fail=0;
                             break;
                         }
-                        else{
-                            JOptionPane.showMessageDialog(frame,"Record not exixts","Error",JOptionPane.ERROR_MESSAGE);
-                            break;
-                        }
+                        fail++;
                     }
+                    if(fail>0)
+                        JOptionPane.showMessageDialog(frame, "Record doesn't exists","Error",JOptionPane.ERROR_MESSAGE);
                     con.close();
                 }catch(Exception ex){
                     System.out.println("Exception occured at remove button listener in admnMenu.java file");
@@ -180,7 +182,7 @@ public class adminMenu {
         logout.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                
+                new welcome();
             }
         });      
         
