@@ -59,7 +59,7 @@ public class user {
                 if(rst.getString(1).equals(name_field.getText()) && rst.getString(2).equals(pass_field.getText()))
                 {
                     JOptionPane.showMessageDialog(frame, "Login successfully..");
-                    new userDetails();
+                    new userDetails(name_field.getText(),pass_field.getText());
                     fail=0;
                     break;
                 }
