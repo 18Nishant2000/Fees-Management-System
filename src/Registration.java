@@ -10,6 +10,7 @@ import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -44,6 +45,7 @@ public class Registration {
         frame.setLayout(new GridLayout(7, 0));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Class.forName("com.mysql.cj.jdbc.Driver");
+        
         register.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -53,6 +55,7 @@ public class Registration {
             pstmt.setString(1,name_field.getText());
             pstmt.setString(2, pass_field.getText());
             pstmt.execute();
+            JOptionPane.showMessageDialog(frame, "Registered Successfully...");
             con.close();
             new user();
         } catch (Exception exception) {
