@@ -94,7 +94,6 @@ public class adminMenu {
                 try(Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/fees","root","contactmrnishantbansal@18");){
                     String old_name=JOptionPane.showInputDialog(frame,"Enter name");
                     String old_pass=JOptionPane.showInputDialog(frame,"Enter pass");
-                    //String query="select * from records where name=\""+old_name+"\" and password=\""+old_pass+"\"";
                     String query="select * from records";
                     Statement stmt1=con.createStatement();
                     ResultSet rst=stmt1.executeQuery(query);
@@ -126,23 +125,26 @@ public class adminMenu {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try(Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/fees","root","contactmrnishantbansal@18");){
-                    String query="select * from records where name=\"abc\"";
-                    Statement stmt=con.createStatement();
-                    ResultSet rst=stmt.executeQuery(query);
-                    frame.removeAll();
-                    int size=0;
-                    String[] heads={"Name","Password"};
-                    String[][] data=new String[2][2];
+                    String name=JOptionPane.showInputDialog(frame,"Enter name");
+                    String pass=JOptionPane.showInputDialog(frame,"Enter password");
+                    String query="select * from records";
+                    Statement stmt1=con.createStatement();
+                    ResultSet rst=stmt1.executeQuery(query);
+                    int fail=0;
+                    String result="";
                     while(rst.next()){
-                        data[0][0]=rst.getString(1);
-                        data[0][1]=rst.getString(2);
+                        if(rst.getString(1).equals(name)&&rst.getString(2).equals(pass))
+                        {
+                            result+=("Name: "+rst.getString(1)+" Password: "+rst.getString(2));
+                            JLabel label=new JLabel(result);
+                            JOptionPane.showMessageDialog(frame, result);
+                            fail=0;
+                            break;
+                        }
+                        fail++;    
                     }
-                    JTable table=new JTable(data,heads);
-                    table.setBounds(10, 10, 300, 200);
-                    frame.add(table);
-                    frame.setSize(400, 400);
-                    frame.setLayout(null);
-                    frame.setVisible(true);
+                    if(fail>0)
+                        JOptionPane.showMessageDialog(frame,"Record doesn't exists","Error",JOptionPane.ERROR_MESSAGE);
                     con.close();
                 }catch(Exception ex){
                     System.out.println(ex);
