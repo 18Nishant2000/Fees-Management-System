@@ -147,7 +147,7 @@ public class adminMenu {
                         JOptionPane.showMessageDialog(frame,"Record doesn't exists","Error",JOptionPane.ERROR_MESSAGE);
                     con.close();
                 }catch(Exception ex){
-                    System.out.println(ex);
+                    System.out.println("Exception occured in view button listener in adminMenu.java file");
                 }
             }
         });
@@ -159,12 +159,19 @@ public class adminMenu {
                     String query="select * from records";
                     Statement stmt=con.createStatement();
                     ResultSet rst=stmt.executeQuery(query);
+                    int fail=0;
+                    String result="";
                     while(rst.next()){
-                        System.out.println(rst.getString(1)+" "+rst.getString(2));
+                        result+=("Name: "+rst.getString(1)+" Password: "+rst.getString(2)+"\n");
+                        fail++;
                     }
+                    JLabel label=new JLabel(result);
+                    JOptionPane.showMessageDialog(frame, result);
+                    if(fail==0)
+                        JOptionPane.showMessageDialog(frame,"Empty database","Error",JOptionPane.ERROR_MESSAGE);
                     con.close();
                 }catch(Exception ex){
-                    System.out.println(ex);
+                    System.out.println("Exception occured in whole button listener in adminMenu.java file");
                 }
             }
         });
