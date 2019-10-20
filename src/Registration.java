@@ -1,4 +1,5 @@
 
+import java.awt.GridLayout;
 import java.sql.Connection;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -32,15 +33,15 @@ public class Registration {
         register.setBounds(30, 250, 50, 40);
         old_user.setBounds(10, 330,100, 30);
         frame.setSize(400, 400);
-        frame.add(old_user);
-        frame.add(register);
-        frame.add(pass_field);
-        frame.add(pass);
-        frame.add(name_field);
-        frame.add(name);
         frame.add(label);
+        frame.add(name);
+        frame.add(name_field);
+        frame.add(pass);
+        frame.add(pass_field);
+        frame.add(register);
+        frame.add(old_user);
         frame.setVisible(true);
-        frame.setLayout(null);
+        frame.setLayout(new GridLayout(7, 0));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Class.forName("com.mysql.cj.jdbc.Driver");
         register.addActionListener(new ActionListener(){
