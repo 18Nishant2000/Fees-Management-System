@@ -79,7 +79,7 @@ public class user {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    new Registration();
+                    new Registration("user");
                 } catch (ClassNotFoundException ex) {
                     System.out.println(e);
                 }

@@ -16,7 +16,7 @@ import javax.swing.JTextField;
 
 public class Registration {
 
-    Registration() throws ClassNotFoundException {
+    Registration(String s) throws ClassNotFoundException {
     
         JFrame frame=new JFrame("USER REGISTRATION");
         JLabel label=new JLabel("USER REGISTRATION");
@@ -57,6 +57,9 @@ public class Registration {
             pstmt.execute();
             JOptionPane.showMessageDialog(frame, "Registered Successfully...");
             con.close();
+            if(s.equals("admin"))
+                new adminMenu();
+            else
             new user();
         } catch (Exception exception) {
             System.err.println(exception);
