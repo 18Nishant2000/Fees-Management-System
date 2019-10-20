@@ -48,5 +48,12 @@ public class userDetails {
                 }
             }
         });
+        
+        logout.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new welcome();
+            }
+        });
     }
 }
