@@ -33,7 +33,11 @@ public class welcome {
         admin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new admin();
+                try {
+                    new admin();
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(welcome.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
         
