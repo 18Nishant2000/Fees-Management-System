@@ -35,6 +35,7 @@ public class welcome {
             public void actionPerformed(ActionEvent e) {
                 try {
                     new admin();
+                    frame.setVisible(false);
                 } catch (ClassNotFoundException ex) {
                     Logger.getLogger(welcome.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -46,6 +47,7 @@ public class welcome {
             public void actionPerformed(ActionEvent e) {
                 try {
                     new user();
+                    frame.setVisible(false);
                 } catch (ClassNotFoundException ex) {
                     System.out.println(ex);
                 }

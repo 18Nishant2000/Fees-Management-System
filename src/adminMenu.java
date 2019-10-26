@@ -53,6 +53,7 @@ public class adminMenu {
             public void actionPerformed(ActionEvent e) {
                 try {
                     new Registration("admin");
+                    frame.setVisible(false);
                 } catch (ClassNotFoundException ex) {
                     System.out.println("Exception occurs in adminMenu.java in add button listener");
                 }
@@ -183,6 +184,7 @@ public class adminMenu {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new welcome();
+                frame.setVisible(false);
             }
         });      
         

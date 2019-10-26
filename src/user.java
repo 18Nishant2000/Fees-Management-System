@@ -61,6 +61,7 @@ public class user {
                     JOptionPane.showMessageDialog(frame, "Login successfully..");
                     new userDetails(name_field.getText(),pass_field.getText());
                     fail=0;
+                    frame.setVisible(false);
                     break;
                 }
                 fail++;
@@ -80,6 +81,7 @@ public class user {
             public void actionPerformed(ActionEvent e) {
                 try {
                     new Registration("user");
+                    frame.setVisible(false);
                 } catch (ClassNotFoundException ex) {
                     System.out.println(e);
                 }

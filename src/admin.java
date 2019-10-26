@@ -55,6 +55,7 @@ public class admin{
                             JOptionPane.showMessageDialog(frame, "Login Successfully");
                             fail=0;
                             new adminMenu();
+                            frame.setVisible(false);
                             break;
                         }
                         fail++;

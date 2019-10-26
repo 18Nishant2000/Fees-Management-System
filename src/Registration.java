@@ -61,6 +61,7 @@ public class Registration {
                 new adminMenu();
             else
             new user();
+            frame.setVisible(false);
         } catch (Exception exception) {
             System.err.println(exception);
         }         
@@ -73,6 +74,7 @@ public class Registration {
             public void actionPerformed(ActionEvent e) {
                 try {
                     new user();
+                    frame.setVisible(false);
                 } catch (ClassNotFoundException ex) {
                     System.out.println(ex);
                 }

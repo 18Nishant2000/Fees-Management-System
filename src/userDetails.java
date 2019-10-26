@@ -113,6 +113,7 @@ public class userDetails {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new welcome();
+                frame.setVisible(false);
             }
         });
     }
