@@ -4,16 +4,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
 
 
 public class adminMenu {
@@ -37,10 +33,6 @@ public class adminMenu {
         frame.setLayout(new GridLayout(6, 0));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-        JFrame f=new JFrame();
-        f.setSize(400,400);
-        f.setLayout(new GridLayout());
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Class.forName("com.mysql.cj.jdbc.Driver");
         
         add.addActionListener(new ActionListener() {

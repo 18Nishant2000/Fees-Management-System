@@ -5,8 +5,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -45,10 +43,15 @@ public class Registration {
             @Override
             public void actionPerformed(ActionEvent e) {
             try(Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/fees","root","contactmrnishantbansal@18");) {
-            String query="insert into records(name,password)"+"values(?,?)";
+            String query="insert into records(name,password,no_of_days,paid,fine,total,balance)"+"values(?,?,?,?,?,?,?)";
             PreparedStatement pstmt=con.prepareStatement(query);
             pstmt.setString(1,name_field.getText());
             pstmt.setString(2, pass_field.getText());
+            pstmt.setInt(3,java.time.LocalDate.now().getDayOfMonth());
+            pstmt.setFloat(4, 0);
+            pstmt.setInt(5, 0);
+            pstmt.setFloat(6, 1000);
+            pstmt.setFloat(7, 1000);
             pstmt.execute();
             JOptionPane.showMessageDialog(frame, "Registered Successfully...");
             con.close();
