@@ -68,11 +68,11 @@ public class userDetails {
                         bal=rst1.getFloat("balance");
                     }
                     int no_of_days=java.time.LocalDate.now().getDayOfMonth()-init_day;
-                    if(no_of_days==0){
+                    if(no_of_days>1){
                         int updated_fine=fine+100;
                         float updated_total=total+updated_fine;
                         float updated_balance=bal+updated_fine;
-                        String query="update records set fine="+updated_fine+",total="+updated_total+", balance="+updated_balance+" where name=\""+name+"\" and password=\""+pass+"\"";
+                        String query="update records set fine="+updated_fine+",total="+updated_total+", balance="+updated_balance+",no_of_days="+java.time.LocalDate.now().getDayOfMonth()+" where name=\""+name+"\" and password=\""+pass+"\"";
                         Statement stmt=con.createStatement();
                         stmt.execute(query);
                     }
