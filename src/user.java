@@ -27,13 +27,7 @@ public class user {
         JPasswordField pass_field=new JPasswordField();
         JButton login=new JButton("LOGIN");
         JButton new_user=new JButton("New USER?");
-        label.setBounds(30,10, 50, 30);
-        name.setBounds(10,80,40,30);
-        name_field.setBounds(70, 80, 100, 50);
-        pass.setBounds(10, 150, 60, 30);
-        pass_field.setBounds(100,150,100,50);
-        login.setBounds(30, 250, 50, 40);
-        new_user.setBounds(10, 330,100, 30);
+        
         frame.setSize(400, 400);
         frame.add(label);
         frame.add(name);
@@ -75,7 +69,6 @@ public class user {
             }
         });
         
-        
         new_user.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -87,7 +80,5 @@ public class user {
                 }
             }
         });
-                
-        
     }
 }

@@ -25,12 +25,7 @@ public class adminMenu {
         JButton view=new JButton("View Student");
         JButton whole=new JButton("View All");
         JButton logout=new JButton("LOGOUT");
-        add.setBounds(40, 20, 150, 20);
-        remove.setBounds(40, 90, 150, 20);
-        edit.setBounds(40, 160, 150, 20);
-        view.setBounds(40, 230, 150, 20);
-        whole.setBounds(40, 300, 150, 20);
-        logout.setBounds(40, 370, 150, 20);
+        
         frame.setSize(400,400);
         frame.setVisible(true);
         frame.add(add);

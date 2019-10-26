@@ -26,13 +26,7 @@ public class Registration {
         JPasswordField pass_field=new JPasswordField();
         JButton register=new JButton("REGISTER");
         JButton old_user=new JButton("ALREADY REGISTERED?");
-        label.setBounds(30,10, 50, 30);
-        name.setBounds(10,80,40,30);
-        name_field.setBounds(70, 80, 100, 50);
-        pass.setBounds(10, 150, 60, 30);
-        pass_field.setBounds(100,150,100,50);
-        register.setBounds(30, 250, 50, 40);
-        old_user.setBounds(10, 330,100, 30);
+        
         frame.setSize(400, 400);
         frame.add(label);
         frame.add(name);
@@ -44,6 +38,7 @@ public class Registration {
         frame.setVisible(true);
         frame.setLayout(new GridLayout(7, 0));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
         Class.forName("com.mysql.cj.jdbc.Driver");
         
         register.addActionListener(new ActionListener(){

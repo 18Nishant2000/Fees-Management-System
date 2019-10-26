@@ -17,9 +17,6 @@ public class welcome {
         JButton admin =new JButton("ADMIN");
         JButton user=new JButton("USER");
         JLabel label=new JLabel("LOGIN");
-        label.setBounds(30,30,150,20);      
-        admin.setBounds(30,80, 100, 30);
-        user.setBounds(30,110, 100, 30);
         frame.setSize(400, 400);
         frame.add(label);
         frame.add(admin);
@@ -28,8 +25,6 @@ public class welcome {
         frame.setLayout(new GridLayout(3, 0));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-        
-    
         admin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
