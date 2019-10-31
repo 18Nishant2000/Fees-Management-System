@@ -36,7 +36,7 @@ public class user {
         frame.setLayout(new GridLayout(7, 0));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-        Class.forName("com.mysql.jdbc.Driver");
+        Class.forName("com.mysql.cj.jdbc.Driver");
         login.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
