@@ -27,7 +27,7 @@ public class userDetails {
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-        Class.forName("com.mysql.cj.jdbc.Driver");
+        Class.forName("com.mysql.jdbc.Driver");
         
         profile.addActionListener(new ActionListener() {
             @Override

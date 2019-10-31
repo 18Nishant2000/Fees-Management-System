@@ -37,7 +37,7 @@ public class Registration {
         frame.setLayout(new GridLayout(7, 0));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-        Class.forName("com.mysql.cj.jdbc.Driver");
+        Class.forName("com.mysql.jdbc.Driver");
         
         register.addActionListener(new ActionListener(){
             @Override

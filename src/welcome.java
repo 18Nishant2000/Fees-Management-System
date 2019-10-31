@@ -27,8 +27,8 @@ public class welcome {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    new admin();
                     frame.setVisible(false);
+                    new admin();
                 } catch (ClassNotFoundException ex) {
                     Logger.getLogger(welcome.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -39,8 +39,8 @@ public class welcome {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    new user();
                     frame.setVisible(false);
+                    new user();
                 } catch (ClassNotFoundException ex) {
                     System.out.println(ex);
                 }
