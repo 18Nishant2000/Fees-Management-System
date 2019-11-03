@@ -2,8 +2,6 @@
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -30,7 +28,7 @@ public class welcome {
                     frame.setVisible(false);
                     new admin();
                 } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(welcome.class.getName()).log(Level.SEVERE, null, ex);
+                    System.out.println("Exception caught in admin button actionlistener in welcome.java file");
                 }
             }
         });
